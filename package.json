@@ -1,6 +1,6 @@
 {
   "name": "oas3servicemocks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package to mock OAS 3.0 rest services with hateoas links and also includes regression test suite with newman",
   "main": "index.js",
   "scripts": {
