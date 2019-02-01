@@ -49,6 +49,48 @@
 			"response": []
 		},
 		{
+			"name": "GetAll-Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "47786b17-1d98-41bb-9934-0691b8e879c4",
+						"exec": [
+							"console.log(\"Response: \" +\"\\n\"+ responseBody.toString());",
+							"pm.test(\"Status Code\", function () {",
+							"pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Test\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/har/getAll",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"har",
+						"getAll"
+					]
+				},
+				"description": "Get unique DeliveryService for collections with ID"
+			},
+			"response": []
+		},
+		{
 			"name": "PatchService-Test",
 			"event": [
 				{
@@ -80,7 +122,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t \"Test_Payload\": \"HarTest\"\n}"
+					"raw": "{\n\t \"Patch\": \"PostmanSample_Patch1\",\n\t \"Test_Payload\": \"HarTest\"\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/v1/har/patchScenario",
@@ -129,7 +171,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"POST_Payload\":\"HarTest\"\r\n}"
+					"raw": "{\r\n\t\"Id\": \"PostmanSample_POST1\",\r\n  \"POST_Payload\":\"HarTest1\",\r\n  \"Testcmd\":\"check2\"\r\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/v1/har/postScenario",
@@ -173,7 +215,7 @@
 				}
 			],
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -197,7 +239,7 @@
 						"Reset"
 					]
 				},
-				"description": "Reset Checkout Cache"
+				"description": "Reset Cache"
 			},
 			"response": []
 		}

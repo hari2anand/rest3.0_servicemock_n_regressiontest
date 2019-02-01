@@ -1,5 +1,5 @@
 var addressSample = {
-  billingContact: {
+  Address: {
     "id": "idSample1",
     "email": "email@email.com",
     "additionalAttributes": {

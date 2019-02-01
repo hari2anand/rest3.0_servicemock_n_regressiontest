@@ -79,9 +79,9 @@ module.exports = function (options, done) {
         content = _.isPlainObject(options.content) ? JSON.stringify(options.content, 0, 2) : (options.content || E);
 
     // if a path was not provided by user, we need to prepare the default path. but create the default path only if one
-    // is provided. './resources/checkout-context.json'
+    // is provided. 'path.join(__dirname, '../../views
     if (glb_TestReport=='GCP') {
-        //writeFile('C:\workspace\Test_Proj\checkout-mock-nodejs\newman\modules\har.html', content, options, done);
+        //writeFile(path.join(__dirname, '../../resouces/testReport/har.html', content, options, done);
         writeFileGCS(content, options, done);
     }
     else

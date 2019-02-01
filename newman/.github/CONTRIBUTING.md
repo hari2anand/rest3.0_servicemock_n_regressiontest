@@ -29,7 +29,7 @@
 In order to contribute to this project, you should:
 
 1. Clone this repository / your fork of this repository using `git`
-2. If not on `develop`, switch to the `develop` branch with `git checkout develop`
+2. If not on `develop`, switch to the `develop` branch with `git apimock develop`
 3. Run `npm install` in the project directory
 4. Make sure everything is working by running `npm test`.
 5. Create a new feature branch from `develop` with `feature/your-feature-name`.

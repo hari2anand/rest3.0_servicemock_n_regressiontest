@@ -41,9 +41,9 @@ const mockResp= require('./operations/responsePicker');
 
 app.route('/:version/:testParam/getScenario').get(mockResp.getResp);
 app.route('/:version/:testParam/getAll').get(mockResp.getAllResp);
-app.route('/:version/:testParam/getScenario').post(mockResp.postResp);
-app.route('/:version/:testParam/getScenario').patch(mockResp.patchResp);
-app.route('/:version/:testParam/getScenario').delete(mockResp.deleteResp);
+app.route('/:version/:testParam/postScenario').post(mockResp.postResp);
+app.route('/:version/:testParam/patchScenario').patch(mockResp.patchResp);
+app.route('/:version/:testParam/Reset').delete(mockResp.deleteResp);
 
 //API-TestTrigger
 
@@ -54,24 +54,17 @@ app.route('/apitest/trigger').get(apiTest.test);
 
 app.get('*', function(req, res){
   res.status(404).json({"Error":"Request not found"+req.path});
-  checkoutCntxt=null;
-  billingContact=null; 
 });
 app.post('*', function(req, res){
+  res.status(201).header({'X-Powered-By':'Harish Mock app'})
   res.status(404).json({"Error":"Request not found"+req.path});
-  checkoutCntxt=null;
-  billingContact=null; 
 });
 app.put('*', function(req, res){
   res.status(404).json({"Error":"Request not found"+req.path});
-  checkoutCntxt=null;
-  billingContact=null; 
 });
 app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(500).json({"Error":"Oops Something Broke!!"})
-  checkoutCntxt=null;
-  billingContact=null;
 })
 
 
