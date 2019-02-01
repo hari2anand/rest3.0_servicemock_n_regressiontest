@@ -1,5 +1,5 @@
 const app = require('./operations/appTest');
-require('../../newman-reporter-html/index')
+require('newman-reporter-html')
 var env= "GCP";
 
 var test={
