@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "d63ecd59-6908-4039-aacd-e2266bc9708e",
+		"name": "MockSeviceTest",
+		"description": "Collection to test response from mock services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetService-Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "47786b17-1d98-41bb-9934-0691b8e879c4",
+						"exec": [
+							"console.log(\"Response: \" +\"\\n\"+ responseBody.toString());",
+							"pm.test(\"Status Code\", function () {",
+							"pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Test\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/har/getScenario",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"har",
+						"getScenario"
+					]
+				},
+				"description": "Get unique DeliveryService for collections with ID"
+			},
+			"response": []
+		},
+		{
+			"name": "PatchService-Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a4fef4e6-5825-4e44-8182-ce67c3a3a92d",
+						"exec": [
+							"console.log(\"Response: \" +\"\\n\"+ responseBody.toString());",
+							"pm.test(\"Status Code\", function () {",
+							"pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"HarTest\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"Test_Payload\": \"HarTest\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/har/patchScenario",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"har",
+						"patchScenario"
+					]
+				},
+				"description": "Get unique DeliveryService with ID"
+			},
+			"response": []
+		},
+		{
+			"name": "PostService-Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe9d7707-6071-498d-b514-4c2030c82720",
+						"exec": [
+							"console.log(\"Response: \" +\"\\n\"+ responseBody.toString());",
+							"pm.test(\"Status Code\", function () {",
+							"pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"HarTest\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"POST_Payload\":\"HarTest\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/har/postScenario",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"har",
+						"postScenario"
+					]
+				},
+				"description": "Reset Shipping Contact Cache"
+			},
+			"response": []
+		},
+		{
+			"name": "Rest-Mocks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d612a7c5-b259-415c-b5ac-3e09be87403f",
+						"exec": [
+							"console.log(\"Response: \" +\"\\n\"+ responseBody.toString());",
+							"pm.test(\"Status Code - 500 for Reset\", function () {",
+							"pm.response.to.have.status(500);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Simulated Error\");",
+							"});",
+							"",
+							"pm.test(\"Response JSON Validation\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log (jsonData)",
+							"    pm.expect(jsonData.Error).to.eql(\"Simulated Error- Resetting Cache\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/har/Reset",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"har",
+						"Reset"
+					]
+				},
+				"description": "Reset Checkout Cache"
+			},
+			"response": []
+		}
+	]
+}

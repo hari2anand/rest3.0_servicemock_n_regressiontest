@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>APIs Mock Simple HTML FORM</title>
+    <style>
+    body{background-color: #a245e4}
+    textarea{background-color:aquamarine}
+    button{background-color: rgb(250, 156, 156)}
+    H1 { text-align: center}
+    </style>
+  </head>
+  <body>
+    <H1>API MOCK Trigger UI</H1>
+    <h2>Post Mock Sample</h2>
+    <form method="POST" action="/v1/har/postTest">
+      <div>
+        <textarea name="PostHTMLPayload" rows="16" cols="100" wrap="soft">
+            {
+              "PostHTMLPayload": {
+                 "id": 87654321,
+                 "TestMessage": "Post Payload for the mocks"
+              }
+           }
+        </textarea>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+  <body>
+    <h2>Get Mock Sample</h2>
+    <form method="GET" action="/v1/har/getSample12/"> 
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+  </body>
+</html>
