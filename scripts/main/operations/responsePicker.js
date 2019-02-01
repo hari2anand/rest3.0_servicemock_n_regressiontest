@@ -8,9 +8,8 @@ var Resplnk=resplnks.samplelnk;
 var RespListlnk=resplnks.samplelnk2;
 
 var responseSample = require('../../../resources/schemas/TestSchema');
-var checkoutContext = checkoutContextSample.checkout;
 
-var checkout = {
+var responsePicker = {
   postResp: function(req, res, next)
   {
     console.log('Mocking POST');
@@ -100,4 +99,4 @@ var checkout = {
       res.json((glb_sampletCntxtRespList.length<=0?{_embedded:[{'Sample': responseSample, 'links': Resplnk(reqDetails)}]}:{_embedded:glb_sampletCntxtRespList}), Resplnk(reqDetails));
     }
   };
-  module.exports=checkout;
+  module.exports=responsePicker;

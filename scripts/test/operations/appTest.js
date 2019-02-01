@@ -1,5 +1,5 @@
 const path = require('path');
-const newman = require('../../newman/index');
+const newman = require('../../../newman/index');
 const environments = ['LOC', 'GCP'];
 
  module.exports.run = (env, opts) => {

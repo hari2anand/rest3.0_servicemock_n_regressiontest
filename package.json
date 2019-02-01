@@ -4,7 +4,7 @@
   "description": "Package to mock OAS 3.0 rest services with hateoas links and also includes regression test suite with newman",
   "main": "server.js",
   "scripts": {
-	"start": "node ./scripts/main/server.js",
+    "start": "node ./scripts/main/server.js",
     "test": "node ./scripts/test/runTest.js"
   },
   "repository": {
@@ -18,9 +18,9 @@
     "mockswithpostman",
     "postmansuite",
     "hateoas",
-	"ApiTest",
-	"ServiceTest",
-	"Rest3.0 mockswithpostman"
+    "ApiTest",
+    "ServiceTest",
+    "Rest3.0 mockswithpostman"
   ],
   "author": "Harish Anand Thiru Kumareshan",
   "license": "GPL-3.0-or-later",
@@ -30,6 +30,7 @@
   "homepage": "https://github.com/hari2anand/rest3.0_servicemock_n_regressiontest#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "express-hateoas-links": "^1.1.0",
     "newman": "^4.3.1",
     "newman-reporter-html": "^1.0.2"
   }
