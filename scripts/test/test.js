@@ -1,14 +1,19 @@
 const app = require('./operations/appTest');
+const path = require('path');
+
 require('newman-reporter-html')
-var env= "GCP";
+var env= "GCP",
+glb_TestReport='GCP';
 
 var test={
     test:async function(req, res, next){
 
-        if(req.hostname == "localhost"){env= 'LOC'};
-        glb_TestReport='GCP'
-        await go(env, '');
-        res.send(glb_TestReport);
+        if(req.hostname == "localhost")
+        {env= 'LOC';
+        glb_TestReport= (path.join(__dirname, '../../reports/report.html'))
+    };
+        await go(env,glb_TestReport);
+        res.sendFile(glb_TestReport);
     }
 }
 
